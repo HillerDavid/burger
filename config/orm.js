@@ -8,15 +8,19 @@ let orm = {
         })
     },
 
-    insertOne: function (cols, vals, cb) {
-        connection.query("INSERT INTO burgers (burger_name, devoured) VALUES (?, ?)", [cols, vals], (err, result) =>{
+    insertOne: function (cols, cb) {
+        connection.query("INSERT INTO burgers (burger_name) VALUES (?)", cols, (err, result) =>{
             if (err) throw err
             cb(result)
         })
     },
 
-    updateOne: function (object, id) {
-        connection.query("UPDATE burger SET ? WHERE id = ?", [object, id], (err, result) =>{
+    updateOne: function (condition, cb) {
+        let queryString = "UPDATE burgers SET devoured=TRUE WHERE "
+        queryString += condition
+        console.log(queryString)
+        connection.query(queryString, function (err, result){
+            
             if (err) throw err
             cb(result)
         })

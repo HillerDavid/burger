@@ -7,14 +7,14 @@ let burger = {
         })
     },
 
-    insertOne: function (cols, vals, cb) {
-        orm.insertOne(cols, vals, (res) => {
+    insertOne: function (cols, cb) {
+        orm.insertOne(cols, (res) => {
             cb(res)
-        }
+        })
     },
 
-    updateOne: function (obj, id, cb) {
-        orm.updateOne(obj, id, (res) => {
+    updateOne: function (id, cb) {
+        orm.updateOne(id, (res) => {
             cb(res)
         })
     }
