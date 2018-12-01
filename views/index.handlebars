@@ -1,14 +1,16 @@
 <h1>Bob's Burgers</h1>
 
 <h2>Burgers of the Day</h2>
+<div class="container" id="burger-board">
+    <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/unless}}
+        {{/each}}
+    </ul>
+</div>
 
-<ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burger-block devoured=false}}
-    {{/unless}}
-    {{/each}}
-</ul>
 
 <h2>Burgers Eaten</h2>
 
@@ -30,5 +32,3 @@
 
     <button type="submit" id="burger-submit">Add Burger</button>
 </form>
-
-
