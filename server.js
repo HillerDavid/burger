@@ -4,13 +4,12 @@ let app = express()
 let PORT = process.env.PORT || 80
 
 //Serves static content from 'public' directory
-app.use(express.static(__dirname + '/public'))
 
+app.use(express.static("public"))
 
 //Parse application body
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
-app.use(express.static('public'))
 //Set handlebars
 let exphbs = require('express-handlebars')
 
